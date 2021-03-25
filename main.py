@@ -135,7 +135,7 @@ def main():
     if args.resume:
         if os.path.isfile(args.resume):
             print("=> loading checkpoint '{}'".format(args.resume))
-            checkpoint = torch.load(args.resume)
+            checkpoint = torch.load(args.resume, encoding='latin1')
             args.start_epoch = checkpoint['epoch']
             best_acc = checkpoint['best_prec1']
             tnet.load_state_dict(checkpoint['state_dict'])
